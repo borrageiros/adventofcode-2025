@@ -1,0 +1,43 @@
+<p>Bajas por la escalera mecánica hasta el departamento de impresión. Está claro que se están preparando para Navidad; tienen muchos rollos grandes de papel por todas partes, e incluso hay una impresora enorme en la esquina (para gestionar los trabajos de impresión realmente grandes).</p>
+
+<p>Decorar aquí será fácil: pueden hacer sus propias decoraciones. Lo que realmente necesitas es una forma de adentrarte más en la base del Polo Norte mientras los ascensores están fuera de servicio.</p>
+
+<p>«En realidad, quizá podamos ayudar con eso», responde uno de los Elfos cuando pides ayuda. «Estamos bastante seguros de que hay una cafetería al otro lado de la pared del fondo. Si pudiéramos atravesar la pared, podrías seguir avanzando. Es una lástima que todas nuestras carretillas elevadoras estén tan ocupadas moviendo esos grandes rollos de papel.»</p>
+
+<p>Si puedes optimizar el trabajo que están haciendo las carretillas elevadoras, quizá tendrían tiempo de sobra para derribar la pared.</p>
+
+<p>Los rollos de papel (<code>@</code>) están dispuestos en una gran cuadrícula; los Elfos incluso tienen un diagrama útil (tu entrada del rompecabezas) que indica dónde está todo ubicado.</p>
+
+<p>Por ejemplo:</p>
+
+<table class="grid-table">
+<tr><td>.</td><td>.</td><td>@</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td></tr>
+<tr><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td></tr>
+<tr><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td></tr>
+<tr><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>.</td><td>@</td><td>.</td></tr>
+<tr><td>@</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>@</td></tr>
+<tr><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td></tr>
+<tr><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td></tr>
+<tr><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td></tr>
+<tr><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td></tr>
+<tr><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>.</td></tr>
+</table>
+
+<p>Las carretillas elevadoras solo pueden acceder a un rollo de papel si hay <strong>menos de cuatro</strong> rollos de papel en las ocho posiciones adyacentes. Si puedes averiguar a qué rollos de papel pueden acceder las carretillas, pasarán menos tiempo buscando y más tiempo derribando la pared hacia la cafetería.</p>
+
+<p>En este ejemplo, hay <strong>13</strong> rollos de papel a los que puede acceder una carretilla elevadora (marcados con <code>x</code>):</p>
+
+<table class="grid-table">
+<tr><td>.</td><td>.</td><td class="highlight">x</td><td class="highlight">x</td><td>.</td><td class="highlight">x</td><td class="highlight">x</td><td>@</td><td class="highlight">x</td><td>.</td></tr>
+<tr><td class="highlight">x</td><td>@</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td></tr>
+<tr><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td class="highlight">x</td><td>.</td><td>@</td><td>@</td></tr>
+<tr><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>.</td><td>@</td><td>.</td></tr>
+<tr><td class="highlight">x</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td class="highlight">x</td></tr>
+<tr><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td></tr>
+<tr><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td></tr>
+<tr><td class="highlight">x</td><td>.</td><td>@</td><td>@</td><td>@</td><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td></tr>
+<tr><td>.</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>@</td><td>.</td></tr>
+<tr><td class="highlight">x</td><td>.</td><td class="highlight">x</td><td>.</td><td>@</td><td>@</td><td>@</td><td>.</td><td class="highlight">x</td><td>.</td></tr>
+</table>
+
+<p>Considera tu diagrama completo de las ubicaciones de los rollos de papel. ¿Cuántos rollos de papel pueden ser accedidos por una carretilla elevadora?</p>

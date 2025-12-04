@@ -1,0 +1,130 @@
+<p>Ahora, los Elfos solo necesitan ayuda para acceder a la mayor cantidad de papel posible.</p>
+
+<p>Una vez que una carretilla elevadora puede acceder a un rollo de papel, este puede ser retirado. Una vez que un rollo de papel es retirado, las carretillas podrían poder acceder a más rollos de papel, que también podrían retirar. ¿Cuántos rollos de papel en total podrían retirar los Elfos si siguen repitiendo este proceso?</p>
+
+<p>Comenzando con el mismo ejemplo de antes, aquí hay una forma en que podrías retirar tantos rollos de papel como sea posible, usando <code>@</code> resaltado para indicar que un rollo está a punto de ser retirado, y usando <code>x</code> para indicar que un rollo acaba de ser retirado:</p>
+
+<p><strong>Estado inicial:</strong></p>
+<div class="example-block"><pre>..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@.</pre></div>
+
+<p><strong>Retira 13 rollos de papel:</strong></p>
+<div class="example-block"><pre>..xx.xx@x.
+x@@.@.@.@@
+@@@@@.x.@@
+@.@@@@..@.
+x@.@@@@.@x
+.@@@@@@@.@
+.@.@.@.@@@
+x.@@@.@@@@
+.@@@@@@@@.
+x.x.@@@.x.</pre></div>
+
+<p><strong>Retira 12 rollos de papel:</strong></p>
+<div class="example-block"><pre>.......x..
+.@@.x.x.@x
+x@@@@...@@
+x.@@@@..x.
+.@.@@@@.x.
+.x@@@@@@.x
+.x.@.@.@@@
+..@@@.@@@@
+.x@@@@@@@.
+....@@@...</pre></div>
+
+<p><strong>Retira 7 rollos de papel:</strong></p>
+<div class="example-block"><pre>..........
+.x@.....x.
+.@@@@...xx
+..@@@@....
+.x.@@@@...
+..@@@@@@..
+...@.@.@@x
+..@@@.@@@@
+..x@@@@@@.
+....@@@...</pre></div>
+
+<p><strong>Retira 5 rollos de papel:</strong></p>
+<div class="example-block"><pre>..........
+..x.......
+.x@@@.....
+..@@@@....
+...@@@@...
+..x@@@@@..
+...@.@.@@.
+..x@@.@@@x
+...@@@@@@.
+....@@@...</pre></div>
+
+<p><strong>Retira 2 rollos de papel:</strong></p>
+<div class="example-block"><pre>..........
+..........
+..x@@.....
+..@@@@....
+...@@@@...
+...@@@@@..
+...@.@.@@.
+...@@.@@@.
+...@@@@@x.
+....@@@...</pre></div>
+
+<p><strong>Retira 1 rollo de papel:</strong></p>
+<div class="example-block"><pre>..........
+..........
+...@@.....
+..x@@@....
+...@@@@...
+...@@@@@..
+...@.@.@@.
+...@@.@@@.
+...@@@@@..
+....@@@...</pre></div>
+
+<p><strong>Retira 1 rollo de papel:</strong></p>
+<div class="example-block"><pre>..........
+..........
+...x@.....
+...@@@....
+...@@@@...
+...@@@@@..
+...@.@.@@.
+...@@.@@@.
+...@@@@@..
+....@@@...</pre></div>
+
+<p><strong>Retira 1 rollo de papel:</strong></p>
+<div class="example-block"><pre>..........
+..........
+....x.....
+...@@@....
+...@@@@...
+...@@@@@..
+...@.@.@@.
+...@@.@@@.
+...@@@@@..
+....@@@...</pre></div>
+
+<p><strong>Retira 1 rollo de papel:</strong></p>
+<div class="example-block"><pre>..........
+..........
+..........
+...x@@....
+...@@@@...
+...@@@@@..
+...@.@.@@.
+...@@.@@@.
+...@@@@@..
+....@@@...</pre></div>
+
+<p>Detente cuando ningún rollo de papel más sea accesible por una carretilla elevadora. En este ejemplo, un total de <strong>43</strong> rollos de papel pueden ser retirados.</p>
+
+<p>Comienza con tu diagrama original. ¿Cuántos rollos de papel en total pueden ser retirados por los Elfos y sus carretillas elevadoras?</p>
+

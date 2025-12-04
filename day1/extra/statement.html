@@ -1,0 +1,30 @@
+<p>Estás seguro de que esa es la contraseña correcta, pero la puerta no se abre. Llamas, pero nadie responde. Construyes un muñeco de nieve mientras piensas.</p>
+
+<p>Mientras haces las bolas de nieve para tu muñeco, encuentras otro documento de seguridad que debe haberse caído en la nieve:</p>
+
+<p><em>"Debido a protocolos de seguridad más recientes, por favor usa el método de contraseña 0x434C49434B hasta nuevo aviso."</em></p>
+
+<p>Recuerdas del seminario de capacitación que "método 0x434C49434B" significa que en realidad debes contar el número de veces que cualquier clic hace que el dial apunte al <code>0</code>, independientemente de si ocurre durante una rotación o al final de una.</p>
+
+<p>Siguiendo las mismas rotaciones del ejemplo anterior, el dial apunta al cero algunas veces extra durante sus rotaciones:</p>
+
+<ul>
+    <li>El dial comienza apuntando al <strong>50</strong>.</li>
+    <li>Se gira <code>L68</code>, queda apuntando al <strong>82</strong>; durante esta rotación, apunta al 0 una vez. ✓</li>
+    <li>Se gira <code>L30</code>, queda apuntando al <strong>52</strong>.</li>
+    <li>Se gira <code>R48</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>L5</code>, queda apuntando al <strong>95</strong>.</li>
+    <li>Se gira <code>R60</code>, queda apuntando al <strong>55</strong>; durante esta rotación, apunta al 0 una vez. ✓</li>
+    <li>Se gira <code>L55</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>L1</code>, queda apuntando al <strong>99</strong>.</li>
+    <li>Se gira <code>L99</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>R14</code>, queda apuntando al <strong>14</strong>.</li>
+    <li>Se gira <code>L82</code>, queda apuntando al <strong>32</strong>; durante esta rotación, apunta al 0 una vez. ✓</li>
+</ul>
+
+<p>En este ejemplo, el dial apunta al <code>0</code> tres veces al final de una rotación, más otras tres veces durante una rotación. Así que, en este ejemplo, la nueva contraseña sería <strong>6</strong>.</p>
+
+<p>Ten cuidado: si el dial estuviera apuntando al <code>50</code>, ¡una sola rotación como <code>R1000</code> haría que el dial apuntara al <code>0</code> diez veces antes de volver al <code>50</code>!</p>
+
+<p>Usando el método de contraseña 0x434C49434B, ¿cuál es la contraseña para abrir la puerta?</p>
+

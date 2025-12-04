@@ -1,0 +1,33 @@
+<p>Entras y tomas el ascensor hasta su única otra parada: la tienda de regalos. «¡Gracias por visitar el Polo Norte!» exclama alegremente un cartel cercano. No estás seguro de quién puede visitar siquiera el Polo Norte, pero sabes que puedes acceder al vestíbulo desde aquí y, desde allí, al resto de la base del Polo Norte.</p>
+
+<p>Mientras avanzas a través de la sorprendentemente extensa selección, uno de los dependientes te reconoce y te pide ayuda.</p>
+
+<p>Resulta que uno de los Elfos más jóvenes estaba jugando con un ordenador de la tienda y consiguió añadir un montón de IDs de producto inválidos a la base de datos de la tienda de regalos. Seguro que no será problema para ti identificar los IDs inválidos, ¿verdad?</p>
+
+<p>Incluso ya han revisado la mayoría de los rangos de IDs de producto; solo tienen unos pocos rangos de IDs (tu entrada del puzle) que necesitarás comprobar. Por ejemplo:</p>
+
+<div class="example-block">11-22,95-115,998-1012,1188511880-1188511890,222220-222224,<br>1698522-1698528,446443-446449,38593856-38593862,565653-565659,<br>824824821-824824827,2121212118-2121212124</div>
+
+<p>(Los rangos de IDs están divididos aquí para mayor legibilidad; en tu entrada aparecen en una única línea larga).</p>
+
+<p>Los rangos están separados por comas (<code>,</code>); cada rango da su primer ID y su último ID separados por un guion (<code>-</code>).</p>
+
+<p>Como el joven Elfo solo estaba haciendo patrones tontos, puedes encontrar los IDs inválidos buscando cualquier ID compuesto únicamente por una secuencia de dígitos repetida dos veces. Así, <code>55</code> (5 dos veces), <code>6464</code> (64 dos veces) y <code>123123</code> (123 dos veces) serían IDs inválidos.</p>
+
+<p>Ninguno de los números tiene ceros iniciales; <code>0101</code> no es un ID válido en absoluto. (<code>101</code> es un ID válido que debes ignorar).</p>
+
+<p>Tu tarea es encontrar todos los IDs inválidos que aparecen en los rangos dados. En el ejemplo anterior:</p>
+
+<ul>
+    <li><code>11-22</code> tiene dos IDs inválidos: <strong>11</strong> y <strong>22</strong>.</li>
+    <li><code>95-115</code> tiene un ID inválido: <strong>99</strong>.</li>
+    <li><code>998-1012</code> tiene un ID inválido: <strong>1010</strong>.</li>
+    <li><code>1188511880-1188511890</code> tiene un ID inválido: <strong>1188511885</strong>.</li>
+    <li><code>222220-222224</code> tiene un ID inválido: <strong>222222</strong>.</li>
+    <li><code>1698522-1698528</code> no contiene IDs inválidos.</li>
+    <li><code>446443-446449</code> tiene un ID inválido: <strong>446446</strong>.</li>
+    <li><code>38593856-38593862</code> tiene un ID inválido: <strong>38593859</strong>.</li>
+    <li>El resto de los rangos no contienen IDs inválidos.</li>
+</ul>
+
+<p>Sumando todos los IDs inválidos de este ejemplo se obtiene <strong>1227775554</strong>.</p>

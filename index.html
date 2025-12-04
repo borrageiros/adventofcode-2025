@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent of Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 900px;
+            padding: 80px 40px;
+        }
+
+        header {
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            display: block;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            max-width: 400px;
+            line-height: 1.7;
+        }
+
+        .divider {
+            margin: 40px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">December Challenge</div>
+            <h1>Advent of Code<span>DIC 2025</span></h1>
+            <div class="divider"></div>
+            <p class="subtitle">A collection of daily programming puzzles.</p>
+        </header>
+
+        <main>
+            <div id="loading" class="loading-state">
+                <div class="loader"></div>
+                <span>Scanning for solutions...</span>
+            </div>
+            
+            <div id="days-container" class="days-grid" style="display: none;"></div>
+            
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <div class="icon">○</div>
+                <p>No solutions found yet.<br>Start solving puzzles to see them here.</p>
+            </div>
+        </main>
+
+        <div id="stats" class="stats" style="display: none;">
+            <div class="stat">
+                <span id="total-days" class="stat-value">0</span>
+                <span class="stat-label">Days completed</span>
+            </div>
+            <div class="stat">
+                <span id="progress" class="stat-value">0%</span>
+                <span class="stat-label">Progress</span>
+            </div>
+            <div class="stat stat-extra">
+                <span id="total-extras" class="stat-value">0</span>
+                <span class="stat-label">Extras completed</span>
+            </div>
+            <div class="stat stat-extra">
+                <span id="progress-extras" class="stat-value">0%</span>
+                <span class="stat-label">Extras progress</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const MAX_DAYS = 12;
+        const ANIMATION_DELAY = 80;
+        
+        function createDayCard(dayNumber, title, mainCompleted, extraCompleted) {
+            const card = document.createElement('a');
+            card.href = `day.html?day=${dayNumber}`;
+            card.className = 'day-card';
+            
+            let starsHtml = '';
+            const stars = (mainCompleted ? '★' : '☆') + (extraCompleted ? '★' : '');
+            starsHtml = `<span class="stars-badge">${stars}</span>`;
+            
+            card.innerHTML = `
+                <span class="corner-accent top-left"></span>
+                <span class="corner-accent bottom-right"></span>
+                <span class="day-number">${String(dayNumber).padStart(2, '0')}</span>
+                <span class="day-label">${title || 'Day'}</span>
+                ${starsHtml}
+            `;
+            return card;
+        }
+
+        async function fetchText(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) return null;
+                return await response.text();
+            } catch {
+                return null;
+            }
+        }
+
+        async function runSolve(solveCode, input) {
+            try {
+                const wrappedCode = `
+                    (function() {
+                        ${solveCode}
+                        return typeof solve === 'function' ? solve : null;
+                    })()
+                `;
+                const solveFn = eval(wrappedCode);
+                if (solveFn && input) {
+                    return solveFn(input);
+                }
+                return null;
+            } catch (e) {
+                console.error('Error running solve:', e);
+                return null;
+            }
+        }
+
+        async function checkDayCompletion(dayNumber, config) {
+            const result = { mainCompleted: false, extraCompleted: false };
+            
+            const mainCode = await fetchText(`day${dayNumber}/main/solve.js`);
+            const mainExample = await fetchText(`day${dayNumber}/main/example.txt`);
+            
+            if (mainCode && mainExample && config?.main?.expected !== undefined && config?.main?.expected !== null) {
+                const mainResult = await runSolve(mainCode, mainExample);
+                result.mainCompleted = mainResult === config.main.expected;
+            }
+            
+            const extraCode = await fetchText(`day${dayNumber}/extra/solve.js`);
+            const extraExample = await fetchText(`day${dayNumber}/extra/example.txt`);
+            
+            if (extraCode && extraExample && config?.extra?.expected !== undefined && config?.extra?.expected !== null) {
+                const extraResult = await runSolve(extraCode, extraExample);
+                result.extraCompleted = extraResult === config.extra.expected;
+            }
+            
+            return result;
+        }
+
+        async function scanForDays() {
+            const loadingEl = document.getElementById('loading');
+            const containerEl = document.getElementById('days-container');
+            const emptyStateEl = document.getElementById('empty-state');
+            const statsEl = document.getElementById('stats');
+            const totalDaysEl = document.getElementById('total-days');
+            const progressEl = document.getElementById('progress');
+            const totalExtrasEl = document.getElementById('total-extras');
+            const progressExtrasEl = document.getElementById('progress-extras');
+
+            let daysConfig = {};
+            
+            try {
+                const response = await fetch('days.json');
+                daysConfig = await response.json();
+            } catch (error) {
+                console.error('Error loading days.json:', error);
+            }
+
+            const foundDays = Object.keys(daysConfig).map(Number).sort((a, b) => a - b);
+
+            if (foundDays.length === 0) {
+                loadingEl.style.display = 'none';
+                emptyStateEl.style.display = 'block';
+                return;
+            }
+
+            const completionResults = [];
+            for (const day of foundDays) {
+                const result = await checkDayCompletion(day, daysConfig[day]);
+                completionResults.push({ day, ...result });
+            }
+
+            const mainCompletedCount = completionResults.filter(r => r.mainCompleted).length;
+            const extraCompletedCount = completionResults.filter(r => r.extraCompleted).length;
+
+            loadingEl.style.display = 'none';
+            containerEl.style.display = 'grid';
+            statsEl.style.display = 'flex';
+
+            totalDaysEl.textContent = mainCompletedCount;
+            progressEl.textContent = Math.round((mainCompletedCount / MAX_DAYS) * 100) + '%';
+            
+            totalExtrasEl.textContent = extraCompletedCount;
+            progressExtrasEl.textContent = Math.round((extraCompletedCount / MAX_DAYS) * 100) + '%';
+
+            completionResults.forEach(({ day, mainCompleted, extraCompleted }, index) => {
+                const card = createDayCard(day, daysConfig[day]?.title, mainCompleted, extraCompleted);
+                containerEl.appendChild(card);
+                
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * ANIMATION_DELAY);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', scanForDays);
+    </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day - Advent of Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to index
+        </a>
+
+        <header>
+            <div id="dayBadge" class="day-badge">Day --</div>
+            <h1 id="dayTitle">Loading...</h1>
+            <div class="divider"></div>
+        </header>
+
+        <main>
+            <div class="part-container" id="mainPart">
+                <div class="part-header">
+                    <span class="part-badge">Main</span>
+                    <p id="mainSubtitle" class="subtitle">Loading...</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">00</span>
+                            <span class="section-label">Problem Statement</span>
+                        </div>
+                        <button class="statement-toggle" onclick="toggleStatement('main')">
+                            <span>Show / Hide</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="mainStatementBody" class="statement-body">
+                        <div class="statement-body-inner">
+                            <div id="mainStatementContent" class="statement-content">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">01</span>
+                            <span class="section-label">Puzzle Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="mainInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <div id="mainInput" class="input-display">Loading...</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">02</span>
+                            <span class="section-label">Example Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="mainExampleInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <div id="mainExampleInput" class="input-display">Loading...</div>
+                    <div class="expected-row">
+                        <span class="expected-label">Expected</span>
+                        <span id="mainExpectedValue" class="expected-value">—</span>
+                    </div>
+                </div>
+
+                <div class="section test-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">03</span>
+                            <span class="section-label">Test Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="mainTestInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <textarea id="mainTestInput" placeholder="Paste your test input here..."></textarea>
+                    <div class="test-actions">
+                        <div></div>
+                        <button class="btn" onclick="testMain()">Run Test</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">04</span>
+                            <span class="section-label">Solution Code</span>
+                        </div>
+                        <button class="btn btn-small" onclick="copyCode('main')">Copy</button>
+                    </div>
+                    <pre id="mainSolutionCode" class="code-display"><code>Loading...</code></pre>
+                </div>
+            </div>
+
+            <div class="part-container part-extra" id="extraPart" style="display: none;">
+                <div class="part-header">
+                    <span class="part-badge part-badge-extra">Extra</span>
+                    <p id="extraSubtitle" class="subtitle">Loading...</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">00</span>
+                            <span class="section-label">Problem Statement</span>
+                        </div>
+                        <button class="statement-toggle" onclick="toggleStatement('extra')">
+                            <span>Show / Hide</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="extraStatementBody" class="statement-body">
+                        <div class="statement-body-inner">
+                            <div id="extraStatementContent" class="statement-content">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">01</span>
+                            <span class="section-label">Puzzle Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="extraInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <div id="extraInput" class="input-display">Loading...</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">02</span>
+                            <span class="section-label">Example Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="extraExampleInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <div id="extraExampleInput" class="input-display">Loading...</div>
+                    <div class="expected-row">
+                        <span class="expected-label">Expected</span>
+                        <span id="extraExpectedValue" class="expected-value">—</span>
+                    </div>
+                </div>
+
+                <div class="section test-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">03</span>
+                            <span class="section-label">Test Input</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Result</span>
+                            <span id="extraTestInputTotal" class="result-value">—</span>
+                        </div>
+                    </div>
+                    <textarea id="extraTestInput" placeholder="Paste your test input here..."></textarea>
+                    <div class="test-actions">
+                        <div></div>
+                        <button class="btn" onclick="testExtra()">Run Test</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <span class="section-number">04</span>
+                            <span class="section-label">Solution Code</span>
+                        </div>
+                        <button class="btn btn-small" onclick="copyCode('extra')">Copy</button>
+                    </div>
+                    <pre id="extraSolutionCode" class="code-display"><code>Loading...</code></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const dayNumber = params.get('day');
+        const dayFolder = `day${dayNumber}`;
+
+        let dayConfig = null;
+        let mainSolve = null;
+        let extraSolve = null;
+        let hasExtra = false;
+
+        function toggleStatement(part) {
+            const body = document.getElementById(`${part}StatementBody`);
+            const container = document.getElementById(`${part}Part`);
+            const toggle = container.querySelector('.statement-toggle');
+            body.classList.toggle('expanded');
+            toggle.classList.toggle('expanded');
+        }
+
+        function processMain(inputStr, outputId, expected = null) {
+            const inputEl = document.getElementById(outputId);
+            const resultEl = document.getElementById(outputId + "Total");
+
+            if (!inputEl || !resultEl) {
+                console.error("Elements not found:", outputId, outputId + "Total");
+                return;
+            }
+
+            inputEl.textContent = inputStr;
+
+            const result = mainSolve ? mainSolve(inputStr) : 0;
+            resultEl.textContent = result;
+
+            if (expected !== null) {
+                if (result === expected) {
+                    resultEl.classList.add('success');
+                    resultEl.classList.remove('error');
+                } else {
+                    resultEl.classList.add('error');
+                    resultEl.classList.remove('success');
+                }
+            }
+
+            return result;
+        }
+
+        function processExtra(inputStr, outputId, expected = null) {
+            const inputEl = document.getElementById(outputId);
+            const resultEl = document.getElementById(outputId + "Total");
+
+            if (!inputEl || !resultEl) {
+                console.error("Elements not found:", outputId, outputId + "Total");
+                return;
+            }
+
+            inputEl.textContent = inputStr;
+
+            const result = extraSolve ? extraSolve(inputStr) : 0;
+            resultEl.textContent = result;
+
+            if (expected !== null) {
+                if (result === expected) {
+                    resultEl.classList.add('success');
+                    resultEl.classList.remove('error');
+                } else {
+                    resultEl.classList.add('error');
+                    resultEl.classList.remove('success');
+                }
+            }
+
+            return result;
+        }
+
+        async function loadDayConfig() {
+            try {
+                const response = await fetch('days.json');
+                const days = await response.json();
+                dayConfig = days[dayNumber];
+                
+                if (!dayConfig) {
+                    throw new Error('Day not found in config');
+                }
+
+                document.title = `Day ${dayNumber.padStart(2, '0')} - Advent of Code`;
+                document.getElementById('dayBadge').textContent = `Day ${dayNumber.padStart(2, '0')}`;
+                document.getElementById('dayTitle').textContent = dayConfig.title;
+                
+                if (dayConfig.main) {
+                    document.getElementById('mainSubtitle').textContent = dayConfig.main.subtitle;
+                    document.getElementById('mainExpectedValue').textContent = dayConfig.main.expected ?? '—';
+                }
+                
+                if (dayConfig.extra) {
+                    document.getElementById('extraSubtitle').textContent = dayConfig.extra.subtitle;
+                    document.getElementById('extraExpectedValue').textContent = dayConfig.extra.expected ?? '—';
+                }
+            } catch (error) {
+                console.error('Error loading day config:', error);
+                document.getElementById('dayTitle').textContent = 'Error loading day';
+            }
+        }
+
+        async function loadMainSolveScript() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `${dayFolder}/main/solve.js`;
+                script.onload = () => {
+                    mainSolve = window.solve;
+                    window.solve = undefined;
+                    resolve();
+                };
+                script.onerror = () => {
+                    console.error('Error loading main solve.js');
+                    reject(new Error('Failed to load main solve.js'));
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        async function loadExtraSolveScript() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `${dayFolder}/extra/solve.js`;
+                script.onload = () => {
+                    extraSolve = window.solve;
+                    window.solve = undefined;
+                    hasExtra = true;
+                    document.getElementById('extraPart').style.display = 'block';
+                    resolve();
+                };
+                script.onerror = () => {
+                    hasExtra = false;
+                    resolve();
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        async function loadMainStatement() {
+            try {
+                const response = await fetch(`${dayFolder}/main/statement.html`);
+                if (!response.ok) throw new Error('File not found');
+                const html = await response.text();
+                document.getElementById('mainStatementContent').innerHTML = html;
+            } catch (error) {
+                document.getElementById('mainStatementContent').textContent = 'Error loading statement';
+                console.error('Error loading main statement:', error);
+            }
+        }
+
+        async function loadExtraStatement() {
+            try {
+                const response = await fetch(`${dayFolder}/extra/statement.html`);
+                if (!response.ok) throw new Error('File not found');
+                const html = await response.text();
+                document.getElementById('extraStatementContent').innerHTML = html;
+            } catch (error) {
+                document.getElementById('extraStatementContent').textContent = 'No statement available';
+                console.error('Error loading extra statement:', error);
+            }
+        }
+
+        async function loadMainPuzzleInput() {
+            try {
+                const response = await fetch(`${dayFolder}/main/input.txt`);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                processMain(text, "mainInput");
+            } catch (error) {
+                document.getElementById('mainInput').textContent = 'Error loading input file';
+                console.error('Error loading main puzzle input:', error);
+            }
+        }
+
+        async function loadExtraPuzzleInput() {
+            try {
+                const response = await fetch(`${dayFolder}/extra/input.txt`);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                processExtra(text, "extraInput");
+            } catch (error) {
+                document.getElementById('extraInput').textContent = 'Error loading input file';
+                console.error('Error loading extra puzzle input:', error);
+            }
+        }
+
+        async function loadMainExampleInput() {
+            try {
+                const response = await fetch(`${dayFolder}/main/example.txt`);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                processMain(text, "mainExampleInput", dayConfig?.main?.expected);
+            } catch (error) {
+                document.getElementById('mainExampleInput').textContent = 'Error loading example file';
+                console.error('Error loading main example input:', error);
+            }
+        }
+
+        async function loadExtraExampleInput() {
+            try {
+                const response = await fetch(`${dayFolder}/extra/example.txt`);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                processExtra(text, "extraExampleInput", dayConfig?.extra?.expected);
+            } catch (error) {
+                document.getElementById('extraExampleInput').textContent = 'Error loading example file';
+                console.error('Error loading extra example input:', error);
+            }
+        }
+
+        function testMain() {
+            processMain(document.getElementById("mainTestInput").value, "mainTestInput");
+        }
+
+        function testExtra() {
+            processExtra(document.getElementById("extraTestInput").value, "extraTestInput");
+        }
+
+        async function loadMainSolutionCode() {
+            try {
+                const response = await fetch(`${dayFolder}/main/solve.js`);
+                if (!response.ok) throw new Error('File not found');
+                const code = await response.text();
+                document.getElementById('mainSolutionCode').querySelector('code').textContent = code;
+            } catch (error) {
+                document.getElementById('mainSolutionCode').querySelector('code').textContent = 'Error loading solution code';
+                console.error('Error loading main solution code:', error);
+            }
+        }
+
+        async function loadExtraSolutionCode() {
+            try {
+                const response = await fetch(`${dayFolder}/extra/solve.js`);
+                if (!response.ok) throw new Error('File not found');
+                const code = await response.text();
+                document.getElementById('extraSolutionCode').querySelector('code').textContent = code;
+            } catch (error) {
+                document.getElementById('extraSolutionCode').querySelector('code').textContent = 'Error loading solution code';
+                console.error('Error loading extra solution code:', error);
+            }
+        }
+
+        function copyCode(part) {
+            const codeEl = document.getElementById(`${part}SolutionCode`);
+            const code = codeEl.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = codeEl.previousElementSibling.querySelector('.btn-small') || 
+                            codeEl.closest('.section').querySelector('.btn-small');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = originalText, 2000);
+            });
+        }
+
+        async function init() {
+            if (!dayNumber) {
+                document.getElementById('dayTitle').textContent = 'No day specified';
+                document.getElementById('mainSubtitle').textContent = 'Use ?day=X in the URL';
+                return;
+            }
+
+            await loadDayConfig();
+            await loadMainSolveScript();
+            await loadExtraSolveScript();
+            
+            loadMainStatement();
+            loadMainExampleInput();
+            loadMainPuzzleInput();
+            loadMainSolutionCode();
+
+            if (hasExtra) {
+                loadExtraStatement();
+                loadExtraExampleInput();
+                loadExtraPuzzleInput();
+                loadExtraSolutionCode();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

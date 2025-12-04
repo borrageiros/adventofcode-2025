@@ -1,0 +1,46 @@
+{
+    "1": {
+        "title": "Entrada Secreta",
+        "main": {
+            "subtitle": "Descifra la contraseña de la caja fuerte contando cuántas veces el dial apunta al 0.",
+            "expected": 3
+        },
+        "extra": {
+            "subtitle": "Cuenta también las veces que el dial pasa por el 0 durante cada rotación.",
+            "expected": 6
+        }
+    },
+    "2": {
+        "title": "Tienda de Regalos",
+        "main": {
+            "subtitle": "Encuentra los IDs de producto inválidos compuestos por secuencias de dígitos repetidas.",
+            "expected": 1227775554
+        },
+        "extra": {
+            "subtitle": "Ahora los IDs son inválidos si la secuencia se repite al menos dos veces.",
+            "expected": 4174379265
+        }
+    },
+    "3": {
+        "title": "Vestíbulo",
+        "main": {
+            "subtitle": "Encuentra el voltaje máximo de cada banco de baterías para alimentar la escalera mecánica.",
+            "expected": 357
+        },
+        "extra": {
+            "subtitle": "Ahora debes encender exactamente doce baterías por banco para mayor voltaje.",
+            "expected": 3121910778619
+        }
+    },
+    "4": {
+        "title": "Dep. de Impresión",
+        "main": {
+            "subtitle": "Encuentra los rollos de papel accesibles para las carretillas elevadoras.",
+            "expected": 13
+        },
+        "extra": {
+            "subtitle": "Retira rollos iterativamente hasta que no queden más accesibles.",
+            "expected": 43
+        }
+    }
+}

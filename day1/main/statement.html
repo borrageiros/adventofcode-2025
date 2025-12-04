@@ -1,0 +1,54 @@
+<p>Los Elfos tienen buenas y malas noticias. La buena noticia es que han descubierto la gestión de proyectos. Esto les ha dado las herramientas que necesitan para evitar su típica emergencia navideña.</p>
+
+<p>La mala noticia es que se han dado cuenta de que tienen una emergencia diferente: según su planificación de recursos, ¡ninguno de ellos tiene tiempo para decorar el Polo Norte!</p>
+
+<p>Para salvar la Navidad, los Elfos necesitan que termines de decorar el Polo Norte antes del 12 de diciembre.</p>
+
+<p>Llegas a la entrada secreta de la base del Polo Norte listo para empezar a decorar. Desafortunadamente, la contraseña parece haber cambiado, así que no puedes entrar. Un documento pegado a la pared explica amablemente:</p>
+
+<p><em>"Debido a nuevos protocolos de seguridad, la contraseña está guardada en la caja fuerte de abajo. Por favor, consulta el documento adjunto para la nueva combinación."</em></p>
+
+<p>La caja fuerte tiene un dial con solo una flecha; alrededor del dial están los números del <code>0</code> al <code>99</code> en orden. Al girar el dial, hace un pequeño clic cuando pasa por cada número.</p>
+
+<p>El documento adjunto (tu entrada del rompecabezas) contiene una secuencia de giros, uno por línea, que te indican cómo abrir la caja fuerte. Un giro comienza con una <code>L</code> o <code>R</code>, que indica si el giro debe hacerse hacia la izquierda (hacia números menores) o hacia la derecha (hacia números mayores). Luego, el giro tiene un valor de distancia que indica cuántos clics debe girarse el dial en esa dirección.</p>
+
+<p>Así, si el dial estuviera apuntando al <code>11</code>, un giro de <code>R8</code> haría que el dial apuntara al <code>19</code>. Después, un giro de <code>L19</code> haría que apuntara al <code>0</code>.</p>
+
+<p>Como el dial es un círculo, girarlo a la izquierda desde <code>0</code> un clic hace que apunte al <code>99</code>. Del mismo modo, girarlo a la derecha desde <code>99</code> un clic hace que apunte al <code>0</code>.</p>
+
+<p><strong>El dial comienza apuntando al 50.</strong></p>
+
+<p>Podrías seguir las instrucciones, pero tu reciente y obligatorio seminario de capacitación sobre la seguridad de la entrada secreta del Polo Norte te enseñó que la caja fuerte es en realidad un señuelo. La contraseña real es el número de veces que el dial queda apuntando al <code>0</code> después de cualquier giro de la secuencia.</p>
+
+<p>Por ejemplo, supón que el documento adjunto contuviera los siguientes giros:</p>
+
+<div class="example-block"><pre>L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82</pre></div>
+
+<p>Seguir estos giros haría que el dial se moviera de la siguiente manera:</p>
+
+<ul>
+    <li>El dial comienza apuntando al <strong>50</strong>.</li>
+    <li>Se gira <code>L68</code>, queda apuntando al <strong>82</strong>.</li>
+    <li>Se gira <code>L30</code>, queda apuntando al <strong>52</strong>.</li>
+    <li>Se gira <code>R48</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>L5</code>, queda apuntando al <strong>95</strong>.</li>
+    <li>Se gira <code>R60</code>, queda apuntando al <strong>55</strong>.</li>
+    <li>Se gira <code>L55</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>L1</code>, queda apuntando al <strong>99</strong>.</li>
+    <li>Se gira <code>L99</code>, queda apuntando al <strong>0</strong>. ✓</li>
+    <li>Se gira <code>R14</code>, queda apuntando al <strong>14</strong>.</li>
+    <li>Se gira <code>L82</code>, queda apuntando al <strong>32</strong>.</li>
+</ul>
+
+<p>Como el dial apunta al <code>0</code> un total de tres veces durante este proceso, la contraseña en este ejemplo es <strong>3</strong>.</p>
+
+<p>Analiza los giros de tu documento adjunto. ¿Cuál es la contraseña real para abrir la puerta?</p>

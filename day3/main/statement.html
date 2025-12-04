@@ -1,0 +1,33 @@
+<p>Bajas por una escalera corta, entras en el vestíbulo sorprendentemente amplio y pasas rápidamente el control de seguridad. Sin embargo, cuando llegas a los ascensores principales, descubres que cada uno tiene una luz roja encima: todos están fuera de servicio.</p>
+
+<p>«Perdona por esto», se disculpa un Elfo mientras trastea con un panel de control cercano. «Parece que algún tipo de sobrecarga eléctrica los ha frito. Intentaré volver a ponerlos en línea pronto.»</p>
+
+<p>Le explicas que necesitas seguir bajando más. «Bueno, al menos podrías tomar la escalera mecánica hacia el departamento de impresión, aunque no llegarías mucho más lejos sin los ascensores funcionando. Es decir, podrías si la escalera mecánica no estuviera también fuera de servicio.»</p>
+
+<p>«Pero no te preocupes. No está frita; solo necesita energía. Quizá puedas ponerla en marcha mientras yo sigo trabajando en los ascensores.»</p>
+
+<p>Hay baterías cerca que pueden suministrar energía de emergencia a la escalera mecánica para ocasiones como esta. Cada batería está etiquetada con su nivel de voltaje, un valor de <code>1</code> a <code>9</code>. Tomas nota de los niveles de voltaje (tu entrada del rompecabezas). Por ejemplo:</p>
+
+<div class="example-block"><pre>987654321111111
+811111111111119
+234234234234278
+818181911112111</pre></div>
+
+<p>Las baterías están organizadas en bancos; cada línea de dígitos en tu entrada corresponde a un solo banco de baterías. Dentro de cada banco, debes encender exactamente <strong>dos baterías</strong>; el voltaje que produce el banco es igual al número formado por los dígitos de las baterías que has encendido.</p>
+
+<p>Por ejemplo, si tienes un banco como <code>12345</code> y enciendes las baterías 2 y 4, el banco produciría <strong>24 voltios</strong>. (No puedes reorganizar las baterías.)</p>
+
+<p>Tendrás que encontrar el mayor voltaje posible que cada banco puede producir. En el ejemplo anterior:</p>
+
+<ul>
+    <li>En <code>987654321111111</code>, puedes hacer el mayor voltaje posible, <strong>98</strong>, encendiendo las dos primeras baterías.</li>
+    <li>En <code>811111111111119</code>, puedes hacer el mayor voltaje posible encendiendo las baterías etiquetadas 8 y 9, produciendo <strong>89</strong> voltios.</li>
+    <li>En <code>234234234234278</code>, puedes hacer <strong>78</strong> encendiendo las dos últimas baterías (las marcadas 7 y 8).</li>
+    <li>En <code>818181911112111</code>, el mayor voltaje que puedes producir es <strong>92</strong>.</li>
+</ul>
+
+<p>El voltaje total de salida es la suma del voltaje máximo de cada banco, así que en este ejemplo, el voltaje total es:</p>
+
+<p><code>98 + 89 + 78 + 92</code> = <strong>357</strong></p>
+
+<p>Hay muchas baterías frente a ti. Encuentra el máximo voltaje posible de cada banco; ¿cuál es el voltaje total de salida?</p>
