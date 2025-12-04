@@ -307,40 +307,40 @@
             }
         }
 
+        function loadSolveFromCode(code) {
+            const wrapped = `${code}\nreturn typeof solve === 'function' ? solve : null;`;
+            try {
+                return new Function(wrapped)();
+            } catch (e) {
+                console.error('Error parsing solve.js:', e);
+                return null;
+            }
+        }
+
         async function loadMainSolveScript() {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = `${dayFolder}/main/solve.js`;
-                script.onload = () => {
-                    mainSolve = window.solve;
-                    window.solve = undefined;
-                    resolve();
-                };
-                script.onerror = () => {
-                    console.error('Error loading main solve.js');
-                    reject(new Error('Failed to load main solve.js'));
-                };
-                document.head.appendChild(script);
-            });
+            try {
+                const response = await fetch(`${dayFolder}/main/solve.js`);
+                if (!response.ok) throw new Error('File not found');
+                const code = await response.text();
+                mainSolve = loadSolveFromCode(code);
+            } catch (error) {
+                console.error('Error loading main solve.js:', error);
+                mainSolve = null;
+            }
         }
 
         async function loadExtraSolveScript() {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = `${dayFolder}/extra/solve.js`;
-                script.onload = () => {
-                    extraSolve = window.solve;
-                    window.solve = undefined;
-                    hasExtra = true;
-                    document.getElementById('extraPart').style.display = 'block';
-                    resolve();
-                };
-                script.onerror = () => {
-                    hasExtra = false;
-                    resolve();
-                };
-                document.head.appendChild(script);
-            });
+            try {
+                const response = await fetch(`${dayFolder}/extra/solve.js`);
+                if (!response.ok) throw new Error('File not found');
+                const code = await response.text();
+                extraSolve = loadSolveFromCode(code);
+                hasExtra = true;
+                document.getElementById('extraPart').style.display = 'block';
+            } catch (error) {
+                hasExtra = false;
+                extraSolve = null;
+            }
         }
 
         async function loadMainStatement() {
