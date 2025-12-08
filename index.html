@@ -103,8 +103,10 @@
             card.className = 'day-card';
             
             let starsHtml = '';
-            const stars = (mainCompleted ? '★' : '☆') + (extraCompleted ? '★' : '');
-            starsHtml = `<span class="stars-badge">${stars}</span>`;
+            const stars = (mainCompleted ? '★' : '') + (extraCompleted ? '★' : '');
+            if (stars) {
+                starsHtml = `<span class="stars-badge">${stars}</span>`;
+            }
             
             card.innerHTML = `
                 <span class="corner-accent top-left"></span>

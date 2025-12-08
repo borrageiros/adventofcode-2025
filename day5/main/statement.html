@@ -1,0 +1,39 @@
+<p>Mientras las carretillas elevadoras atraviesan la pared, los Elfos se alegran al descubrir que, después de todo, había una cafetería al otro lado.</p>
+
+<p>Puedes oír un alboroto que viene de la cocina. «¡A este ritmo, no nos quedará tiempo para colgar las guirnaldas en el comedor!» Resuelto en tu búsqueda, investigas.</p>
+
+<p>«¡Si tan solo no hubiéramos cambiado al nuevo sistema de gestión de inventario justo antes de Navidad!», exclama otro Elfo. Le preguntas qué está pasando.</p>
+
+<p>Los Elfos en la cocina explican la situación: debido a su complicado nuevo sistema de gestión de inventario, no pueden averiguar cuáles de sus ingredientes están frescos y cuáles están estropeados. Cuando preguntas cómo funciona, te dan una copia de su base de datos (tu entrada del rompecabezas).</p>
+
+<p>La base de datos opera con IDs de ingredientes. Consiste en una lista de rangos de IDs de ingredientes frescos, una línea en blanco, y una lista de IDs de ingredientes disponibles. Por ejemplo:</p>
+
+<div class="example-block"><pre>3-5
+10-14
+16-20
+12-18
+
+1
+5
+8
+11
+17
+32</pre></div>
+
+<p>Los rangos de IDs frescos son inclusivos: el rango 3-5 significa que los IDs de ingredientes 3, 4 y 5 están todos frescos. Los rangos también pueden solaparse; un ID de ingrediente está fresco si está en cualquier rango.</p>
+
+<p>Los Elfos están intentando determinar cuáles de los IDs de ingredientes disponibles están frescos. En este ejemplo, esto se hace de la siguiente manera:</p>
+
+<ul>
+<li>El ID de ingrediente 1 está estropeado porque no cae en ningún rango.</li>
+<li>El ID de ingrediente 5 está fresco porque cae en el rango 3-5.</li>
+<li>El ID de ingrediente 8 está estropeado.</li>
+<li>El ID de ingrediente 11 está fresco porque cae en el rango 10-14.</li>
+<li>El ID de ingrediente 17 está fresco porque cae en el rango 16-20 así como en el rango 12-18.</li>
+<li>El ID de ingrediente 32 está estropeado.</li>
+</ul>
+
+<p>Así que, en este ejemplo, 3 de los IDs de ingredientes disponibles están frescos.</p>
+
+<p>Procesa el archivo de la base de datos del nuevo sistema de gestión de inventario. ¿Cuántos de los IDs de ingredientes disponibles están frescos?</p>
+

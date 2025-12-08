@@ -42,5 +42,16 @@
             "subtitle": "Retira rollos iterativamente hasta que no queden más accesibles.",
             "expected": 43
         }
+    },
+    "5": {
+        "title": "Cafetería",
+        "main": {
+            "subtitle": "Determina cuántos IDs de ingredientes disponibles están frescos según los rangos dados.",
+            "expected": 3
+        },
+        "extra": {
+            "subtitle": "Cuenta todos los IDs únicos que los rangos consideran frescos, ignorando la lista de disponibles.",
+            "expected": 14
+        }
     }
 }

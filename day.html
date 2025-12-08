@@ -330,6 +330,12 @@
         }
 
         async function loadExtraSolveScript() {
+            if (!dayConfig?.extra) {
+                hasExtra = false;
+                extraSolve = null;
+                return;
+            }
+            
             try {
                 const response = await fetch(`${dayFolder}/extra/solve.js`);
                 if (!response.ok) throw new Error('File not found');
